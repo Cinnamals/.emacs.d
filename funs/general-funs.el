@@ -9,9 +9,7 @@
   (save-excursion
     (indent-region (point-min) (point-max) nil)))
 
-;;
 ;; Recently killed buffers
-;;
 (defvar killed-file-list nil
   "List of recently killed files.")
 
@@ -40,9 +38,7 @@
           (find-file file)))
     (error "No recently-killed buffers to reopen")))
 
-;;
 ;; Reload dir locals
-;;
 (defun reload-dir-locals-current-buffer ()
   "Reload dir locals for the current buffer"
   (interactive)

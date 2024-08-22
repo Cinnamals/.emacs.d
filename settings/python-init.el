@@ -42,26 +42,6 @@ in the echo area."
     (insert stars)
     (end-of-line 0)))
 
-;; (setq my/python-interpreter-prefix
-;;       (if (at-work-p) "cbrun x86_64 " ""))
-
-;; (require 'subr-x)
-;; (defun my/run-python ()
-;;   "Wrapper around `run-python' which, given a prefix arg, starts
-;; python2 instead of python3"
-;;   (interactive)
-;;   (let* ((interpreter (if current-prefix-arg "python2" "python3"))
-;;          (command (if (at-work-p)
-;;                       `("cbrun" "x86_64" ,interpreter "-i")
-;;                     `(,interpreter "-i"))))
-;;     (setq python-shell-interpreter (car command))
-;;     (setq python-shell-interpreter-args
-;;           (string-join (cdr command) " ")))
-;;   (setq current-prefix-arg nil) ; Inhibit prefix arg for `run-python'.
-;;   (call-interactively 'run-python))
-
-;; (define-key python-mode-map (kbd "C-c C-p") 'my/run-python)
-
 (use-package pip-requirements
   :ensure t)
 
@@ -81,28 +61,8 @@ in the echo area."
   (local-set-key (kbd "C-c c c") 'my/python-coverage-current-buffer)
   (local-set-key (kbd "C-c c r") 'my/python-coverage-pop-up-report)
   (local-set-key (kbd "C-c c h") 'my/python-coverage-open-html)
-  (local-set-key (kbd "C-c v") 'my/python-vermin-file)
-  ;; Documentation:
-  (local-set-key (kbd "C-M-k") 'my/python-block-comment)
-
-  ;; Cendio:
-  (eval-after-load 'cendio-emacs-base
-    '(progn
-       (local-set-key (kbd "M-o") 'cendio/find-other-python-file)
-       (local-set-key (kbd "M-O") 'cendio/find-other-python-file-other-window)
-       (local-set-key (kbd "C-c C-i") 'cendio/install-current-buffer)
-       (local-set-key (kbd "C-c t t") 'cendio/python-unit-test-run-test)
-       (local-set-key (kbd "C-c t c") 'cendio/python-unit-test-run-class)
-       (local-set-key (kbd "C-c t f") 'cendio/python-unit-test-run-file))))
+  (local-set-key (kbd "C-c v") 'my/python-vermin-file))
 
 (add-hook 'python-mode-hook 'my/python-mode-hook)
-
-; (setq dap-python-debugger 'debugpy)
-
-; (dap-register-debug-template "Attach to vsmserver"
-;                              (list :type "python"
-;                                    :request "attach"
-;                                    :connect (list :host "localhost"
-;                                                   :port 5678)))
 
 (provide 'python-init)

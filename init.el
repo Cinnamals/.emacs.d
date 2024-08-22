@@ -1,31 +1,10 @@
 ;; Machine predicates.
 (defun at-home-p ()
-  (string= (system-name) "tesla"))
-
-(defun at-thinkpad-p ()
-  (string= (system-name) "maxwell"))
+  (string= (system-name) "mattias"))
 
 (defun at-work-p ()
-  (string= (system-name) "williams"))
+  (string= (system-name) "nojob ;_;"))
 
-;; Bump up the gc-cons-threshold to 256MB during the first 3 seconds
-;; after startup. The value is bumped to shave of .5 seconds at
-;; startup and then restored to avoid noticable GC pauses during
-;; editing.
-
-;; (let ((default-gc-cons-threshold gc-cons-threshold))
-;;   (setq gc-cons-threshold (* 256 1024 1024))
-;;   (run-with-idle-timer
-;;    3 nil
-;;    (lambda (default-gc-cons-threshold)
-;;      (setq gc-cons-threshold default-gc-cons-threshold)
-;;      (message "%S garbage collections during startup"
-;;               gcs-done))
-;;    default-gc-cons-threshold))
-
-;; NOTE: Scrapped the above reset to `default-gc-cons-threshold` since
-;; lsp-mode becomes painfully slow with frequent gc pauses. We now
-;; leave the threshold at 128mb.
 (setq gc-cons-threshold (* 128 1024 1024))
 
 ;; Increase for lsp-mode:
@@ -36,8 +15,8 @@
 ;;; Start emacs server.
 (server-start)
 
-;;; Set ~/workbench/ as default startup directory.
-(setq default-directory "~/workbench/")
+;;; Set default startup directory.
+(setq default-directory "~/")
 
 ;;; Add load paths.
 ;;;; Settings path.
@@ -52,7 +31,6 @@
 (setq load-dir
       (expand-file-name "load" user-emacs-directory))
 
-
 (add-to-list 'load-path settings-dir)
 (add-to-list 'load-path funs-dir)
 (add-to-list 'load-path load-dir)
@@ -64,8 +42,6 @@
 (require 'package)
 (setq package-enable-at-startup nil)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
-;; (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-;; (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
 (package-initialize)
 
 ;;; TODO: `use-package' is included in Emacs 29. Once Emacs 29 is generally
@@ -82,7 +58,6 @@
 (require 'theme-init)
 (require 'general-funs)
 (require 'ivy-init)
-(require 'docker-init)
 (require 'company-init)
 (require 'lsp-init)
 (require 'flycheck-init)
@@ -99,25 +74,12 @@
 (require 'pike-init)
 (require 'eshell-init)
 (require 'dired-init)
-(require 'multiple-cursors-init)
 (require 'yas-init)
-(require 'pdf-init)
 (require 'latex-init)
 (require 'java-init)
 (require 'avy-init)
 (require 'languagetool-init nil 'noerror)
-(require 'email-init)
 (require 'treesit-init)
-
-(require 'moinmoin-mode nil 'noerror)
-
-;; Work related thingies:
-(setq bug-reference-url-format "https://www.cendio.com/bugzilla/show_bug.cgi?id=%s")
-(setq bug-reference-bug-regexp "\\([Bb]ug[\s]\\([0-9]+\\)\\)")
-
-(require 'cendio-emacs-base nil 'noerror)
-(require 'cendio-bz nil 'noerror)
-(global-set-key (kbd "C-x M-b") 'bz-transient)
 
 ;; Load API keys from secret.el if present on the system.
 (require 'secret nil 'noerror)
@@ -130,15 +92,8 @@
 (global-set-key (kbd "C-M-)") 'mwheel-scroll)
 
 (custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   '("bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "37768a79b479684b0756dec7c0fc7652082910c37d8863c35b702db3f16000f8" "c0a0c2f40c110b5b212eb4f2dad6ac9cac07eb70380631151fa75556b0100063" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "1d78d6d05d98ad5b95205670fe6022d15dabf8d131fe087752cc55df03d88595" "b583823b9ee1573074e7cbfd63623fe844030d911e9279a7c8a5d16de7df0ed0" "9129c2759b8ba8e8396fe92535449de3e7ba61fd34569a488dd64e80f5041c9f" default))
- '(hl-todo-highlight-punctuation ":!.")
  '(package-selected-packages
-   '(restclient-jq ox-slack vue-mode ox-jira puppet-mode python-black pip-requirements speed-type dired-narrow editorconfig po-mode python-pytest ayu-theme spacemacs-theme github-theme string-inflection fill-column-indicator htmlize which-key expand-region org-bullets multiple-cursors matlab-mode minions moody doom-modeline poet-theme highlight-escape-sequences gruvbox-theme hl-todo highlight2clipboard dashboard all-the-icons counsel-tramp yasnippet counsel-spotify ivy-rich gist glsl-mode company-anaconda anaconda-mode kotlin-mode flycheck-kotlin cmake-font-lock rjsx-mode dap-mode projectile-ripgrep flycheck flycheck-mode lsp-ui cquery company-lsp use-package swiper company))
+   '(ox-slack vue-mode ox-jira puppet-mode python-black pip-requirements speed-type dired-narrow editorconfig po-mode python-pytest ayu-theme spacemacs-theme github-theme string-inflection fill-column-indicator htmlize which-key expand-region org-bullets multiple-cursors matlab-mode minions moody doom-modeline poet-theme highlight-escape-sequences gruvbox-theme hl-todo highlight2clipboard dashboard all-the-icons counsel-tramp yasnippet counsel-spotify ivy-rich gist glsl-mode company-anaconda anaconda-mode kotlin-mode flycheck-kotlin cmake-font-lock rjsx-mode dap-mode projectile-ripgrep flycheck flycheck-mode lsp-ui cquery company-lsp use-package swiper company))
  '(safe-local-variable-values
    '((eval when
            (and
@@ -151,11 +106,6 @@
                             (file-name-nondirectory
                              (buffer-file-name))))
            (conf-windows-mode)))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+
 (put 'narrow-to-region 'disabled nil)
 (put 'upcase-region 'disabled nil)

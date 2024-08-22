@@ -50,13 +50,6 @@
   :config
   (global-set-key (kbd "C-\\") 'er/expand-region))
 
-(use-package restclient
-  :ensure t)
-
-(use-package csv-mode
-  :ensure t
-  :mode "\\.csv\\'")
-
 (use-package editorconfig
   :ensure t
   :config
