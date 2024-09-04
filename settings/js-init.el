@@ -1,9 +1,3 @@
-(defun setup-work-node-path ()
-  (let ((node-path (expand-file-name "~/.nvm/versions/node/v14.21.1/bin/")))
-    (unless (member node-path exec-path)
-      (setq exec-path (append exec-path `(,node-path)))
-      (setenv "PATH" (concat (getenv "PATH") ":" node-path)))))
-
 (use-package tide
   :ensure t
   :bind (:map global-map
@@ -12,9 +6,6 @@
 
 (defun my/ts-hook ()
   (interactive)
-
-  (when (at-work-p)
-    (setup-work-node-path))
 
   (lsp-mode)
   (flycheck-mode 1)
@@ -28,12 +19,11 @@
   :mode ("\\.ts\\'" . typescript-mode)
   :hook (typescript-mode . my/ts-hook))
 
+(add-to-list 'auto-mode-alist '("\\.mjs\\'" . javascript-mode))
+
 (defun my/js-hook ()
   "Setup tide-mode and friends for current buffer"
   (interactive)
-
-  (when (at-work-p)
-      (setup-work-node-path))
 
   (tide-setup)
 
