@@ -69,13 +69,24 @@
 (require 'latex-init)
 (require 'java-init)
 (require 'avy-init)
+(require 'dart-init)
 (require 'languagetool-init nil 'noerror)
 (require 'treesit-init)
 (require 'key-bindings)
 
 (custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(ox-slack vue-mode ox-jira puppet-mode python-black pip-requirements speed-type dired-narrow editorconfig po-mode python-pytest ayu-theme spacemacs-theme github-theme string-inflection fill-column-indicator htmlize which-key expand-region org-bullets multiple-cursors matlab-mode minions moody doom-modeline poet-theme highlight-escape-sequences gruvbox-theme hl-todo highlight2clipboard dashboard all-the-icons counsel-tramp yasnippet counsel-spotify ivy-rich gist glsl-mode company-anaconda anaconda-mode kotlin-mode flycheck-kotlin cmake-font-lock rjsx-mode dap-mode projectile-ripgrep flycheck flycheck-mode lsp-ui cquery company-lsp use-package swiper company)))
+   '(flutter ox-slack vue-mode ox-jira puppet-mode python-black pip-requirements speed-type dired-narrow editorconfig po-mode python-pytest ayu-theme spacemacs-theme github-theme string-inflection fill-column-indicator htmlize which-key expand-region org-bullets multiple-cursors matlab-mode minions moody doom-modeline poet-theme highlight-escape-sequences gruvbox-theme hl-todo highlight2clipboard dashboard all-the-icons counsel-tramp yasnippet counsel-spotify ivy-rich gist glsl-mode company-anaconda anaconda-mode kotlin-mode flycheck-kotlin cmake-font-lock rjsx-mode dap-mode projectile-ripgrep flycheck flycheck-mode lsp-ui cquery company-lsp use-package swiper company)))
 
 (put 'narrow-to-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
