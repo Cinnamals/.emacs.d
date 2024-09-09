@@ -10,6 +10,13 @@
   :config
   (setq company-backends (delete 'company-semantic company-backends)))
 
+;; Add a hook to automatically trigger completion after typing "." regardless
+(defun my-company-complete-after-dot ()
+  (when (looking-back "\\." 1)
+    (company-complete)))
+
+(add-hook 'post-self-insert-hook 'my-company-complete-after-dot)
+
 ;; (use-package company-lsp
 ;;   :ensure t
 ;;   :after (company lsp-mode)
