@@ -27,4 +27,17 @@
   :config
   (setq lsp-dart-sdk-dir my-dart-sdk-dir ))
 
+(defun my-dart-mode-setup ()
+  (setq-local flycheck-idle-change-delay 2)
+  (add-hook 'post-self-insert-hook 'my-company-complete-after-dot nil t))
+
+(add-hook 'dart-mode-hook 'my-dart-mode-setup)
+
+;; Ensure that the worlds most annoying auto-complete hook only triggers in dart-mode
+(defun my-company-complete-after-dot ()
+  (when (and (derived-mode-p 'dart-mode) (looking-back "\\." 1))
+    (company-complete)))
+
+(add-hook 'post-self-insert-hook 'my-company-complete-after-dot)
+
 (provide 'dart-init)
