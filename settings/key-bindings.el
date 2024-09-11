@@ -36,4 +36,7 @@
 (global-set-key (kbd "C-x j") 'reopen-killed-file)
 (global-set-key (kbd "C-x C-j") 'reopen-killed-file-fancy)
 
+;; Ripgrep search. Edit the ripgrep buffer with C-c C-p
+(global-set-key (kbd "C-c C-r") 'ripgrep-regexp)
+
 (provide 'key-bindings)
