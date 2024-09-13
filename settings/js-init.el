@@ -16,7 +16,8 @@
 (use-package typescript-mode
   :ensure t
   :mode (("\\.ts\\'" . typescript-mode)
-         ("\\.js\\'" . typescript-mode))
+         ("\\.js\\'" . typescript-mode)
+         ("\\.mjs\\'" . typescript-mode))
   :hook (typescript-mode . my/ts-hook))
 
 (provide 'js-init)
