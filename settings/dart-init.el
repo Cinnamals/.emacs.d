@@ -28,7 +28,14 @@
   (setq lsp-dart-sdk-dir my-dart-sdk-dir ))
 
 (defun my-dart-mode-setup ()
-  (setq-local flycheck-idle-change-delay 2)
+  (setq-local company-idle-delay 0.1)
+  (setq-local flycheck-checker 'lsp)
+  (setq-local flycheck-idle-change-delay 0.2)
+  (setq-local lsp-file-watch-threshold 200)
+  (setq-local lsp-diagnostics-max-number 5)
+  (setq-local lsp-idle-delay 1.0)
+  (setq-local lsp-file-watch-ignored
+        '("[/\\\\]\\.git$" "[/\\\\]node_modules$" "[/\\\\]build$" "[/\\\\]dist$"))
   (add-hook 'post-self-insert-hook 'my-company-complete-after-dot nil t))
 
 (add-hook 'dart-mode-hook 'my-dart-mode-setup)
