@@ -59,10 +59,4 @@
   :config
   (counsel-projectile-mode))
 
-(use-package counsel-spotify
-  :ensure t
-  :after counsel
-  :bind (:map global-map
-              ("C-x C-\\" . counsel-spotify-search-track)))
-
 (provide 'ivy-init)
