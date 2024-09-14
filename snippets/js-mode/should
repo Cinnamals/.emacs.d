@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: should
+# key: should
+# --
+
+it('should $1', function () {
+    $0
+});
