@@ -8,6 +8,6 @@ import { $1 } from '$2';
 
 describe('$1', function () {
     it('should $3', function () {
-        $4
+        $0
     });
 });

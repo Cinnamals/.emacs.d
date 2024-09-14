@@ -3,4 +3,4 @@
 # key: import
 # --
 
-import { $1 } from '$2';
+import { $1 } from '$0';
