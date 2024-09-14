@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: import module as
+# key: importas
+# --
+
+import $1 as $2 from '$3';
