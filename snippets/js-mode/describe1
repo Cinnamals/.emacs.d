@@ -4,10 +4,10 @@
 # --
 
 import { expect } from 'chai';
-
+import { $1 } from '$2';
 
 describe('$1', function () {
-    it('should $2', function () {
-        $3
+    it('should $3', function () {
+        $4
     });
 });
