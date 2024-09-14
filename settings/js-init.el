@@ -28,22 +28,21 @@
 ;; ;; ;; TS mode
 
 
-;; ;; JS mode
-(defun my/js-hook ()
+(defun my/js-tide-hook ()
   (interactive)
   (lsp)
   (company-mode 1)
   (eldoc-mode 1)
   (flycheck-mode 1)
-  (setq flycheck-check-syntax-automatically '(save mode-enabled))
-
-  (define-key js-mode-map (kbd "C-c i") 'js-doc-insert-function-doc))
+  (tide-setup)
+  (define-key js-mode-map (kbd "C-c i") 'tide-jsdoc-template)
+  (define-key js-mode-map (kbd "C-c t") 'tide-refactor))
 
 (use-package js-mode
   :ensure nil
   :mode (("\\.js\\'" . js-mode)
          ("\\.mjs\\'" . js-mode))
-  :hook (js-mode . my/js-hook))
-;; ;; JS MODE
+  :hook (js-mode . my/js-tide-hook))
+
 
 (provide 'js-init)
