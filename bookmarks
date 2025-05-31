@@ -1,0 +1,29 @@
+;;;; Emacs Bookmark Format Version 1;;;; -*- coding: utf-8-emacs; mode: lisp-data -*-
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("aktiva-kurser"
+ (filename . "~/skola/innovativ-programmering/aktiva-kurser/")
+ (front-context-string . ".\n  drwxr-xr-x. ")
+ (rear-context-string . "60 13 apr 18.52 ")
+ (position . 111)
+ (last-modified 26683 3142 678322 628000))
+ ("Downloads"
+ (filename . "~/Downloads/")
+ (front-context-string . ".\n  drwx--x---+ ")
+ (rear-context-string . "72 31 maj 16.01 ")
+ (position . 85)
+ (last-modified 26683 4258 730477 58000))
+(".emacs.d"
+ (filename . "~/.emacs.d/")
+ (front-context-string . ".\n  drwx--x---+ ")
+ (rear-context-string . "28  8 mar 22.37 ")
+ (position . 79)
+ (last-modified 26683 3495 34609 387000))
+("gitbin"
+ (filename . "~/gitbin/")
+ (front-context-string . ".\n  drwx--x---+ ")
+ (rear-context-string . "32 19 maj 14.10 ")
+ (position . 75)
+ (last-modified 26683 2947 245462 941000))
+)

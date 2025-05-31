@@ -22,7 +22,8 @@
   (setq dashboard-center-content t)
   (setq dashboard-projects-backend 'projectile)
   (setq dashboard-items '((recents . 20)
-                          (projects . 5))))
+                          (projects . 5)
+                          (bookmarks . 5))))
 
 (use-package fill-column-indicator
   :ensure t
