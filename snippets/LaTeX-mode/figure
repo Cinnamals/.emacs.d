@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: figure-image
+# key: figure
+# --
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\textwidth,scale=1]{images/${1:image.jpg}}
+  \caption{${2:Caption Placeholder}}
+  \label{${3:image-label}}
+\end{figure}$0

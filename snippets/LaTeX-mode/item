@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: item-regular
+# key: item
+# --
+\item $0
